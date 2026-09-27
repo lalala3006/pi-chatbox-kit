@@ -1,6 +1,6 @@
 {
   "name": "pi-chatbox-kit",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": false,
   "type": "module",
   "description": "Reusable Pi-powered chatbox for React and Node.js applications",

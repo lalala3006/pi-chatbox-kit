@@ -99,6 +99,18 @@ describe("ChatboxService", () => {
     expect(await status.text()).not.toContain("top-secret");
   });
 
+  it("returns 404 before opening an event stream for a missing or inaccessible conversation", async () => {
+    const { service } = fixture();
+    const conversation = await service.createConversation({ userId: "owner" });
+    const handler = createChatboxHttpHandler({ service, resolvePrincipal: () => ({ userId: "other" }) });
+    for (const id of ["missing-conversation", conversation.id]) {
+      const response = await handler(new Request(`http://localhost/api/chatbox/conversations/${id}/events`));
+      expect(response.status).toBe(404);
+      expect(response.headers.get("content-type")).toContain("application/json");
+      expect(await response.json()).toEqual({ error: "Conversation not found" });
+    }
+  });
+
   it("retries a failed turn without keeping a duplicate user message", async () => {
     const { service, faux } = fixture();
     const user = { userId: "a" };

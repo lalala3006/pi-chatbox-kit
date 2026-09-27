@@ -109,6 +109,8 @@ export function createChatboxHttpHandler(options: ChatboxHttpHandlerOptions): (r
         }
         if (method === "POST" && path[2] === "retry") return json(await service.retry(principal, id), 202);
         if (method === "GET" && path[2] === "events") {
+          // Reject stale or inaccessible conversations before starting the SSE response.
+          await service.getConversation(principal, id);
           let unsubscribe = () => {};
           let heartbeat: ReturnType<typeof setInterval> | undefined;
           const stream = new ReadableStream<Uint8Array>({
