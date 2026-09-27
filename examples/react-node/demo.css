@@ -1,0 +1,59 @@
+:root { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #29312b; background: #f4f5f0; font-synthesis: none; -webkit-font-smoothing: antialiased; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.demo-app { display: flex; flex-direction: column; height: 100dvh; min-height: 540px; max-width: 1440px; margin: 0 auto; }
+.demo-header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 36px; height: 76px; gap: 16px; }
+.demo-brand { display: flex; gap: 11px; align-items: center; }
+.demo-brand-icon { display: flex; align-items: center; justify-content: center; width: 33px; height: 33px; border-radius: 10px; color: #fff; background: #28634c; }
+.demo-brand strong { font-size: 18px; font-weight: 650; letter-spacing: -.5px; }
+.demo-brand-separator { display: block; height: 14px; width: 1px; background: #dce1d6; margin: 0 3px; }
+.demo-brand-caption { font-size: 11px; color: #96a08f; letter-spacing: .04em; }
+.demo-header-actions { display: flex; gap: 10px; align-items: center; }
+.demo-header-actions button { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 8px 12px; border-radius: 8px; font-size: 11px; }
+.demo-new { color: #7b8874; background: transparent; border: 1px solid transparent; }
+.demo-new:hover { background: #e9ede2; }
+.demo-settings-button { border: 1px solid #dfe5d7; color: #54664a; background: #fafbf7; box-shadow: 0 1px 2px #1d381408; }
+.demo-settings-button:hover { border-color: #b6c6aa; background: #fff; }
+.demo-workspace { display: flex; flex: 1; flex-direction: column; min-height: 0; margin: 0 28px; background: #fcfcfa; border: 1px solid #e2e7dc; border-radius: 17px; overflow: hidden; box-shadow: 0 8px 35px #3c492d04; }
+.demo-workspace-bar { height: 50px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 27px; border-bottom: 1px solid #edf0e8; color: #8a9681; font-size: 10px; letter-spacing: .02em; }
+.demo-workspace-bar > span:first-child { display: flex; gap: 7px; align-items: center; }
+.demo-status-dot { width: 5px; height: 5px; background: #90a979; border-radius: 50%; }
+.demo-workspace-caption { color: #acb5a3; }
+.demo-chat { flex: 1; min-height: 0; }
+.demo-chat .pi-chatbox { min-height: 0; }
+.demo-footer { display: flex; flex-shrink: 0; justify-content: space-between; padding: 13px 36px 15px; font-size: 9px; color: #b0b9a6; letter-spacing: .06em; }
+.demo-footer > span:first-child { font-size: 8px; letter-spacing: .15em; }
+.demo-footer-dot { margin: 0 8px; color: #cad0c1; }
+.demo-error { color: #a04d3f; padding: 8px 20px; margin: 0; font-size: 12px; }
+.demo-settings-dialog { width: min(800px, calc(100vw - 36px)); max-width: 800px; max-height: 88dvh; border: 1px solid #dbe3d1; border-radius: 19px; padding: 0; background: #fcfcfa; color: #29312b; box-shadow: 0 24px 100px #132a1940; }
+.demo-settings-dialog::backdrop { background: #19271f65; backdrop-filter: blur(4px); }
+.demo-settings-shell { position: relative; padding: 12px; }
+.demo-close-settings { position: absolute; right: 24px; top: 24px; display: flex; align-items: center; justify-content: center; background: #eff2eb; border: 0; border-radius: 50%; width: 32px; height: 32px; color: #85917b; z-index: 1; }
+.demo-close-settings:hover { background: #e3e9dc; }
+.demo-settings-note { margin: 0 24px 18px; color: #a0aa96; font-size: 11px; line-height: 1.7; }
+.demo-settings-dialog .pi-chatbox-model-auth { border: 0 !important; border-radius: 0 !important; background: transparent !important; max-width: none !important; padding: 24px !important; color: #374430 !important; gap: 22px !important; }
+.demo-settings-dialog .pi-chatbox-model-auth > header { border-color: #e5ebdd !important; padding-right: 24px; }
+.demo-settings-dialog .pi-chatbox-model-auth > header > small { display: none; }
+.demo-settings-dialog .pi-chatbox-model-auth h2 { font-size: 24px !important; font-weight: 600; margin-top: 0 !important; }
+.demo-settings-dialog .pi-chatbox-model-auth header p { font-size: 12px; color: #9aa68f !important; margin-top: 10px !important; }
+.demo-settings-dialog button:not(.demo-close-settings) { border: 1px solid #dce5d3; border-radius: 8px; background: #fff; padding: 7px 11px; color: #546a46; font-size: 12px; transition: background .15s; }
+.demo-settings-dialog button:hover:not(:disabled) { background: #eff4e9; }
+.demo-settings-dialog button:disabled { opacity: .5; }
+.demo-settings-dialog label { display: grid; gap: 7px; font-size: 12px; color: #738369; }
+.demo-settings-dialog label:has(input[type="checkbox"]) { display: flex; align-items: center; }
+.demo-settings-dialog input:not([type="checkbox"]), .demo-settings-dialog select, .demo-settings-dialog textarea { border: 1px solid #dde5d5; background: #fff; border-radius: 8px; padding: 9px 11px; color: #3d5034; width: 100%; min-height: 36px; max-width: 100%; font-size: 12px; }
+.demo-settings-dialog [role="tablist"] { background: #eff2e9 !important; }
+.demo-settings-dialog [role="tab"] { border: 0 !important; }
+.demo-settings-dialog [role="tab"][aria-selected="true"] { box-shadow: 0 2px 5px #293b1910; }
+.demo-settings-dialog input:focus, .demo-settings-dialog select:focus, .demo-settings-dialog textarea:focus { outline: 2px solid #bbd2a6; outline-offset: 1px; }
+.demo-settings-dialog h3 { font-size: 15px; }.demo-settings-dialog p, .demo-settings-dialog summary, .demo-settings-dialog small { font-size: 12px; }
+@media (max-width: 600px) {
+  .demo-app { min-height: 460px; }.demo-header { height: 64px; padding: 0 17px; }.demo-brand-caption, .demo-brand-separator { display: none; }
+  .demo-brand strong { font-size: 17px; }.demo-brand { gap: 8px; }.demo-header-actions { gap: 2px; }.demo-header-actions button { padding: 7px 9px; }
+  .demo-workspace { margin: 0 8px; border-radius: 14px; }.demo-workspace-bar { height: 43px; padding: 0 18px; }.demo-workspace-caption { display: none; }
+  .demo-footer { padding: 10px 18px; }.demo-footer > span:last-child { display: none; }
+  .demo-settings-dialog { max-height: 94dvh; width: calc(100vw - 16px); }.demo-settings-shell { padding: 0; }.demo-settings-dialog .pi-chatbox-model-auth { padding: 22px 16px !important; }.demo-close-settings { right: 15px; top: 17px; }
+}
